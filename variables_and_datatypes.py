@@ -2,8 +2,6 @@
 
 print("#### Variables")
 # 1. Variables (biến)
-# Được sử dụng để chứa dữ liệu
-# Khai báo biến xác định kiểu dữ liệu hoặc không xác định kiểu dữ liệu
 # Example:
 a = 1
 b = "b"
@@ -36,25 +34,61 @@ plus()
 
 
 print("#### Data types")
+
 # 2. Data Types (Kiểu dữ liệu)
-# Số: int, float, comple
-a = 1 # int
-b = 1.2 # float
-c = complex(3 + 4j) # complex
-
-print(a, b, c)
-print("\n")
-
-# Danh sach: list, dict, set, frozenset, range, tuple
-a = list((1,2,3,4)) # array
-a = [1,2,3,4] # array
-b = set((1,2,3,1)) # set
-c = dict(value=3, value2 = 3) # dict
-d = tuple((1,2,3,4)) # tupple
+# 1. String
+# 2. Int
+# 3. Float
+# 4. Array
+#   4.1 List
+#   4.2 Set
+#   4.3 Tuple
+#   4.4 Dictionary
+# 5. Boolean
 
 
-# kieu chu: str
-
+# str(String)
 a = "text"
 a = str("text")
+a = 'text'
 
+# Numberic: int, float, complex
+a = 1 # int
+b = 1.0 # float
+c = complex(3 + 4j) # complex
+
+# Arrays
+# init list
+a = list([1,2,3,4]) # cach 1
+a = list((1,2,3,4)) # cach 2
+a = [1,2,3,4] # cach 3
+a = ["python", 1, True, 2.756] # mixed list
+
+# init set
+b = set((1,2,3,4)) # cach 1
+print(type(b))
+b = set([1,2,3,4]) # cach 2
+print(type(b))
+b = {1, 2, 3, 4} # cach 3
+print(type(b))
+print
+
+# init dict
+# Key-value pari
+c = dict(key1='cach1', value2 = 3) # cach 1
+print('test dict key1 = ', c["key1"])
+c = {'cach2':1} # cach 2
+print('test dict key1 = ', c["cach2"])
+
+
+
+# init tuple
+d = tuple([1,2,3,4]) # cach 1
+d = tuple((1,2,3,4)) # cach 2
+d = (1,2,3,4) # cach 3
+# với cách 3 nếu khởi tạo d = (1) thì type(d) = int. Nhưng nếu muốn khởi tạo 1 tuple với 1 element thì thêm dấu phẩy
+# d = (1,)
+d = (1)
+print('Tuple wrong init ', type(d))
+d = (1,)
+print('Tuple correct init ', type(d))
