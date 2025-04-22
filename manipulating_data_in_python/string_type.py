@@ -45,6 +45,9 @@ print(stringValue * 2) # Duplicate stringValue
 stringValue2 = "Something String2"
 print(stringValue + " " + stringValue2)
 
+# formatted
+print("toi ten la %s, nam nay toi %i tuoi" % ("Hung", 26))
+
 # IndexError
 printTitle("Index error")
 print(stringValue[30])

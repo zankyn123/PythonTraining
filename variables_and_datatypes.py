@@ -9,6 +9,7 @@ c = False
 print(a,b,c)
 print("\n")
 
+# type casting
 a2 = int(2)
 b2 = str("b2")
 c2 = bool(True)
@@ -22,6 +23,7 @@ a4 = b4 = c4 = 5
 print(a4, b4, c4)
 print("\n")
 
+# get type of a4
 print(type(a4))
 print("\n")
 
