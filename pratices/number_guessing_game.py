@@ -63,6 +63,7 @@ each game.
         # return list score
 
 import random
+import sys
 
 def startGame():
     minimumNumberGuess = 0
@@ -109,6 +110,10 @@ def startGame():
                 guessNumber = int(input(f"Guess the number(btw {minimumNumberGuess} to {maximumNumberGuess}): "))
                 if guessNumber == numberRandom:
                     print(f"Congratulations, You guessed the number in {currentAttempt}")
+                    listScores = writingScore(score=str(currentAttempt))
+                    listScoresSorted = listScores.copy()
+                    listScoresSorted.sort()
+                    print(f"Best attempt: {listScoresSorted[0]}")
                     break
                 elif guessNumber <= round(maximumNumberGuess / 2):
                     print("Try again, too low")
@@ -121,7 +126,24 @@ def startGame():
                 print("Invalid maximum of attempt, try again")
 
 
+
+def writingScore(score: str) -> list:
+    try:
+        with open("scores.txt", mode="a") as file:
+            file.write(f"{score} ")
+        
+        with open("scores.txt", mode="r") as file:
+            content = file.read()
+            listValue = list(filter(None, content.split(" ")))
+            return list(map(lambda x: int(x), listValue))
+    except OSError:
+        return []
+    
+
 startGame()
+
+
+
     
     
     
