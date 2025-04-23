@@ -18,7 +18,7 @@ def rollDiceGame():
     def start() -> bool:
         isRollAuto = input("Do you want roll automation? {y/N}: ").lower() == "y"
         isRollManually = True
-        currentIndex = 0
+        rollTimes = 0
         timesInput = 0
         
         if isRollAuto:
@@ -26,19 +26,30 @@ def rollDiceGame():
             try:
                 timesInput = int(input("How many times you want to roll dive? "))
             except ValueError:
-                print("input number, please")
+                print("Input number, please")
                 start()
 
-        while isRollManually or currentIndex < timesInput:
+        while isRollManually or rollTimes < timesInput:
+            # Roll manually
             if isRollManually:
-                isRollManually = input("Roll the dice? y/N: ").lower() == "y"
-                
-            leftDice = int(random.randint(a = 1, b = 6))
-            rightDice = int(random.randint(a = 1, b = 6))
+                choice = input("Roll the dice? y/N: ").lower()
+                if choice == "y":
+                    isRollManually = True
+                elif choice == "n":
+                    isRollManually = False
+                    break
+                else:
+                    print("Input invalid")
+                    isRollManually = False
+                    break
+
+            leftDice = random.randint(a = 1, b = 6)
+            rightDice = random.randint(a = 1, b = 6)
             print(f"({leftDice}, {rightDice})")
-            currentIndex += 1
+            rollTimes += 1
 
     start()
     print("Good bye")
-    
+
+# Start game
 rollDiceGame()
