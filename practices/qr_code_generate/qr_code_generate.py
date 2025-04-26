@@ -65,17 +65,22 @@ while True:
         break
     except ValueError:
         print("Invalid choice, try again! ")
-
+        
+listInputs = input("Input something you want to gen QR: ").split(",")
 qrCode = qrcode.QRCode(version=3, error_correction=qrcode.constants.ERROR_CORRECT_H)
-qrCode.add_data("Toi la hung")
-qrCode.make(True)
-img = qrCode.make_image(image_factory=styledpil.StyledPilImage,
-                        color_mask=colorMasks.SolidFillColorMask(back_color=backColorChoice.getRgb(), front_color=frontColorChoice.getRgb()),
-                        embeded_image_path = embeddedImage,
-                        module_drawer=moduledDrawers.GappedSquareModuleDrawer())
-try:
-    currentDate = datetime.datetime.now()
-    savePath = f"{ROOTDIR}/qrGenerated/{currentDate.strftime("asds_%d%m%Y_%H%M%S%f")}.png"
-    img.save(savePath)
-except FileNotFoundError:
-    print("Invalid path, try again")
+
+for index, item in enumerate(listInputs):
+    qrCode.add_data(item)
+    qrCode.make(True)
+    img = qrCode.make_image(image_factory=styledpil.StyledPilImage,
+                            color_mask=colorMasks.SolidFillColorMask(back_color=backColorChoice.getRgb(), front_color=frontColorChoice.getRgb()),
+                            embeded_image_path = embeddedImage,
+                            module_drawer=moduledDrawers.GappedSquareModuleDrawer())
+    try:
+        currentDate = datetime.datetime.now()
+        savePath = f"{ROOTDIR}/qrGenerated/{currentDate.strftime("%d%m%Y_%H%M%S%f")}.png"
+        img.save(savePath)
+        print(f"Save done {index+1}/{len(listInputs)}")
+    except FileNotFoundError:
+        print("Invalid path, try again")
+
