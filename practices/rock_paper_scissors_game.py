@@ -73,14 +73,10 @@ class Player:
             return 3
         
     def compareWith(self, player: "Player") -> Results:
-        if self.getValueCompareChoice() - player.getValueCompareChoice() == 1:
+        if self.getValueCompareChoice() - player.getValueCompareChoice() == 1 or self.getValueCompareChoice() - player.getValueCompareChoice() == -2:
             return Results.win
-        elif self.getValueCompareChoice() - player.getValueCompareChoice() == -1:
+        elif self.getValueCompareChoice() - player.getValueCompareChoice() == -1 or self.getValueCompareChoice() - player.getValueCompareChoice() == 2:
             return Results.lose
-        elif self.getValueCompareChoice() - player.getValueCompareChoice() == 2:
-            return Results.lose
-        elif self.getValueCompareChoice() - player.getValueCompareChoice() == -2:
-            return Results.win
         else:
             return Results.equal
         
