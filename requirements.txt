@@ -2,3 +2,4 @@ beautifulsoup4 == 4.13.4
 pandas == 2.2.3
 qrcode
 requests
+xlsxwriter
